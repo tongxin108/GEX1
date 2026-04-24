@@ -1,0 +1,374 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #fef7e8;
+    font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
+    scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: 'Mansalva';
+    src: url('../assets/assets/Mansalva-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+.hero-title,
+.maestro-quote p,
+.movie-card .overlay-text h3 {
+    font-family: 'Mansalva';
+}
+
+
+.hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background: url('../assets/assets/bg-totoro.png') center center / cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:  flex-start;
+    padding: 60px 20px;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    z-index: 10;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+.hero-gif {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-title {
+    font-family: 'Mansalva', cursive;
+    font-size: 80px;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin: 0;
+}
+.hero-layout {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 5;
+}
+
+.video-container {
+    
+    max-width: 80vw;
+    min-width: 200px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin: 20px;  
+}
+
+.video-container video {
+    width: 100%;
+    display: block;
+}
+
+/* ----- 导航栏 ----- */
+.navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background: #f8c8d0;
+    display: flex;
+    justify-content: space-around;
+    padding: 18px 0;
+    z-index: 999;
+    margin-top: -1px;
+}
+
+.navbar a {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #fff;
+}
+
+.container {
+    max-width: 1300px;
+    margin: 3rem auto 4rem;
+    padding: 0 2rem;
+}
+
+.movies-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.movie-card {
+    position: relative;
+    width: 280px;
+    background: #fff6ea;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.25s ease, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.movie-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 28px 36px -12px rgba(0, 0, 0, 0.3);
+}
+
+.movie-img {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    display: block;
+    transition: filter 0.2s;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(2px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    color: #fff3e0;
+    border-radius: 28px;
+}
+
+.movie-card:hover .overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+.overlay-text h3 {
+    font-size: 1.6rem;
+    margin-bottom: 0.6rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #ffdd99;
+}
+
+.overlay-text p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    max-width: 90%;
+    margin: 0 auto;
+    font-family: 'Segoe UI', system-ui;
+}
+
+#maestro-section {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+}
+
+.maestro-img {
+    flex: 1;
+    min-width: 280px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.maestro-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s;
+}
+
+.maestro-img img:hover {
+    transform: scale(1.08);
+}
+
+.quote-box {
+    flex: 2;
+    background: #fbf7e4;
+    padding: 12rem 2rem;
+    transition: background-color 0.35s ease, transform 0.2s;
+    cursor: pointer;
+    min-width: 280px;
+    border-top: 1px solid #f7e5cf;
+    border-bottom: 4px solid #f7e5cf;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.quote-box:hover {
+    background-color: #fdf8cb;
+    transform: scale(1.08);
+}
+
+.quote-text {
+    font-size: 1.7rem;
+    line-height: 1.7;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #0e1314;
+    text-align: center;
+    font-weight: 600;
+}
+
+.quote-author {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    text-align: right;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    color: #050300;
+    border-top: 1px dashed #d9a626;
+    padding-top: 1rem;
+    display: inline-block;
+    width: 100%;
+}
+
+.footer-note {
+    text-align: center;
+    background: #2e3b2c;
+    color: #ecd9b4;
+    padding: 1.8rem;
+    font-size: 0.85rem;
+    margin-top: 3rem;
+    font-family: monospace;
+}
+
+.footer-note:hover {
+    background-color: #7a8a86;
+    transition: background-color 0.35s ease;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        min-height: 80vh;
+        padding: 40px 20px;
+    }
+
+    .hero-gif {
+        width: 80px;
+        height: 80px;
+    }
+
+    .hero-title {
+        font-size: 45px;
+    }
+
+    .hero-layout {
+        margin-top: 30px;
+    }
+
+    .video-container {
+        width: 80%;
+    }
+
+    .container {
+        padding: 0 1.2rem;
+        margin: 2rem auto;
+    }
+
+    .navbar a {
+        font-size: 18px;
+    }
+
+    .quote-box {
+        padding: 3rem 1.5rem;
+    }
+
+    .quote-text {
+        font-size: 1.3rem;
+    }
+
+    .movie-card {
+        width: 260px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        min-height: 70vh;
+    }
+
+    .hero-gif {
+        width: 60px;
+        height: 60px;
+    }
+
+    .hero-title {
+        font-size: 32px;
+    }
+
+    .hero-layout {
+        margin-top: 20px;
+    }
+
+    .video-container {
+        width: 95%;
+    }
+
+    .navbar a {
+        font-size: 14px;
+    }
+
+    .quote-box {
+        padding: 2rem 1rem;
+    }
+
+    .quote-text {
+        font-size: 1.1rem;
+    }
+}
+
+@media (min-width: 1400px) {
+    .hero-title {
+        font-size: 100px;
+    }
+
+    .hero-gif {
+        width: 180px;
+        height: 180px;
+    }
+
+    .hero-layout {
+        margin-top: 60px;
+    }
+
+    .video-container {
+        width: 800px;        
+        max-width: 60vw;     
+        min-width: 400px;    
+    }
+}
